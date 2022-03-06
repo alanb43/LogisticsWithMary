@@ -5,6 +5,7 @@ CREATE TABLE users(
   password VARCHAR(256)
 );
 
+-- DATES STORED AS STRINGS OF FORMAT YYYYMMDD
 CREATE TABLE unfulfilled(
   orderid INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(20),
@@ -18,9 +19,10 @@ CREATE TABLE unfulfilled(
   shippingaddress VARCHAR(256),
   completeby VARCHAR(128),
   notes VARCHAR(512),
-  created DATE
+  created VARCHAR(20)
 );
 
+-- DATES STORED AS STRINGS OF FORMAT YYYYMMDD
 CREATE TABLE fulfilled(
   fulfilledid INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(20),
@@ -32,7 +34,7 @@ CREATE TABLE fulfilled(
   shipped VARCHAR(64),
   shippingaddress VARCHAR(256),
   notes VARCHAR(512),
-  fulfilledat DATE
+  fulfilledat VARCHAR(20)
 );
 
 CREATE TABLE inventory(
