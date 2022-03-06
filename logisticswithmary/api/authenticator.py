@@ -48,8 +48,8 @@ class Authentication():
 
         _password = user_info[0]['password']
         _salt = _password[7: _password.rfind('$')]
-        encrypted_pass = encrypt(self.password, _salt)
-
+        # encrypted_pass = encrypt(self.password, _salt)
+        encrypted_pass = "FIXME"
         return encrypted_pass == _password
 
     def get_username(self):
