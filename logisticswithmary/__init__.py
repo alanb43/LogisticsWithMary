@@ -13,7 +13,7 @@ app.config.from_object('logisticswithmary.config')
 #
 # EXAMPLE:
 # $ export SWETTER_SETTINGS=secret_key_config.py
-app.config.from_envvar('SWETTER_SETTINGS', silent=True)
+app.config.from_envvar('LOGISTICSWITHMARY_SETTINGS', silent=True)
 
 # Tell our app about views and model.  This is dangerously close to a
 # circular import, which is naughty, but Flask was designed that way.
