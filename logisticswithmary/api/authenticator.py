@@ -5,11 +5,15 @@ from logisticswithmary.api.error_handler import ErrorHandler
 # from logisticswithmary.views.accounts import encrypt
 
 
+# UPDATE TO ONLY ALLOW SESSION, NOT HTTP
 class Authentication():
-    """Authentication for API only, for easier http / session auth."""
+    """Authentication for API only using session auth."""
 
     def __init__(self):
         """Initialize class. Call get_auth()."""
+        # No need for auth when testing basic api functionality
+        return
+        
         self.username = None
         self.password = None
 
