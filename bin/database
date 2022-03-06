@@ -34,8 +34,8 @@ case $1 in
     ;;
   "reset")
     echo "Reset script running..."
-    ./bin/logisticswithmary destroy
-    ./bin/logisticswithmary create
+    ./bin/database destroy
+    ./bin/database create
     ;;
   "dump")
     echo "Dump script running..."
