@@ -1,7 +1,8 @@
 PRAGMA foreign_keys = ON;
 CREATE TABLE users(
-  username VARCHAR(20) PRIMARY KEY,
-  password VARCHAR(256),
+  userid INTEGER PRIMARY KEY AUTOINCREMENT,
+  username VARCHAR(20),
+  password VARCHAR(256)
 );
 
 CREATE TABLE unfulfilled(
@@ -16,7 +17,7 @@ CREATE TABLE unfulfilled(
   shipped VARCHAR(64),
   shippingaddress VARCHAR(512),
   completeby VARCHAR(128),
-  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE fulfilled(
@@ -29,7 +30,7 @@ CREATE TABLE fulfilled(
   pricecharged VARCHAR(64),
   shipped VARCHAR(64),
   shippingaddress VARCHAR(512),
-  fulfilledat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  fulfilledat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE inventory(
@@ -39,5 +40,5 @@ CREATE TABLE inventory(
   size VARCHAR(64),
   color VARCHAR(64),
   quantity INTEGER,
-  personaluse VARCHAR(128),
+  personaluse VARCHAR(128)
 );
