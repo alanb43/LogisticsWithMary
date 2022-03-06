@@ -15,6 +15,11 @@ app.config.from_object('logisticswithmary.config')
 # $ export LOGISTICSWITHMARY_SETTINGS=secret_key_config.py
 app.config.from_envvar('LOGISTICSWITHMARY_SETTINGS', silent=True)
 
+# Tell JSON not to sort our keys for jsonify / dumps. Maintains order I set.
+# stackoverflow.com/questions/
+#   54446080/how-to-keep-order-of-sorted-dictionary-passed-to-jsonify-function
+app.config['JSON_SORT_KEYS'] = False
+
 # Tell our app about views and model.  This is dangerously close to a
 # circular import, which is naughty, but Flask was designed that way.
 # (Reference http://flask.pocoo.org/docs/patterns/packages/)  We're
