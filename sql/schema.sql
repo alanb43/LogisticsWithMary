@@ -15,9 +15,10 @@ CREATE TABLE unfulfilled(
   orderedorstocked VARCHAR(64),
   pricecharged VARCHAR(64),
   shipped VARCHAR(64),
-  shippingaddress VARCHAR(512),
+  shippingaddress VARCHAR(256),
   completeby VARCHAR(128),
-  created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+  notes VARCHAR(512),
+  created DATE
 );
 
 CREATE TABLE fulfilled(
@@ -29,8 +30,9 @@ CREATE TABLE fulfilled(
   design VARCHAR(256),
   pricecharged VARCHAR(64),
   shipped VARCHAR(64),
-  shippingaddress VARCHAR(512),
-  fulfilledat DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+  shippingaddress VARCHAR(256),
+  notes VARCHAR(512),
+  fulfilledat DATE
 );
 
 CREATE TABLE inventory(

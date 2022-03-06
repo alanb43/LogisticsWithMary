@@ -24,8 +24,8 @@ case $1 in
     else
         echo "schema.sql is running..."
         sqlite3 var/logisticswithmary.sqlite3 < sql/schema.sql
-        # echo "data.sql is running..."
-        # sqlite3 var/logisticswithmary.sqlite3 < sql/data.sql
+        echo "data.sql is running..."
+        sqlite3 var/logisticswithmary.sqlite3 < sql/testdata.sql
     fi
     ;;
   "destroy")
@@ -39,7 +39,7 @@ case $1 in
     ;;
   "dump")
     echo "Dump script running..."
-    sqlite3 -batch -line var/logisticswithmary.sqlite3 'SELECT * FROM orders'
+    sqlite3 -batch -line var/logisticswithmary.sqlite3 'SELECT * FROM unfulfilled'
     sqlite3 -batch -line var/logisticswithmary.sqlite3 'SELECT * FROM fulfilled'
     sqlite3 -batch -line var/logisticswithmary.sqlite3 'SELECT * FROM inventory'
     ;;
