@@ -1,0 +1,1 @@
+from logisticswithmary.api.index import get_index

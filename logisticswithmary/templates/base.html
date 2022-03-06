@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>LogisticsWithMary</title>
+    </head>
+    <body>
+        <div id="navbar">
+            <a href="/">
+
+                
+            </a>
+            <a href="">
+                
+            </a>
+            <a href="">
+                
+            </a>
+        </div>
+        {% block page_content %}
+        <!-- Where other templates' contents will be loaded into the page -->
+        {% endblock %}
+    </body>
+</html>
