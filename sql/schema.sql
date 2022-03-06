@@ -19,7 +19,7 @@ CREATE TABLE unfulfilled(
   shippingaddress VARCHAR(256),
   completeby VARCHAR(128),
   notes VARCHAR(512),
-  created VARCHAR(20)
+  created INTEGER
 );
 
 -- DATES STORED AS STRINGS OF FORMAT YYYYMMDD
