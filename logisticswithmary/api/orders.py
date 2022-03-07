@@ -72,7 +72,7 @@ def post_order() -> flask.Response:
     
     Authentication()
     connection = logisticswithmary.model.get_db()
-
+    
     name = flask.request.get_json()['name']
     clothingarticle = flask.request.get_json()['clothingarticle']
     size = flask.request.get_json()['size']
@@ -181,12 +181,9 @@ def get_unfulfilled_from_db(size, page_offset):
 def get_unfulfilled_between_dates_from_db(size, page_offset, from_date, to_date):
     """Query database for unfulfileld orders based on paramters."""
     connection = logisticswithmary.model.get_db()
-    # Supposed to query between a range of dates
+    # At least one of from_date, to_date required to do time-based query
     if from_date == '' and to_date == '':
-        error_msg = "ERROR: date range query used when dates aren't provided."
-        print(error_msg)
-        return error_msg
-
+        raise ErrorHandler(message="Bad Request", status_code=400)
 
     cur = connection.execute("""
         SELECT orderid, name, clothingarticle, size, color, design, orderedorstocked,
@@ -196,7 +193,7 @@ def get_unfulfilled_between_dates_from_db(size, page_offset, from_date, to_date)
         ORDER BY orderid DESC 
         LIMIT ?,?;
     """, (from_date, to_date, page_offset * size, size))
-    print(from_date, to_date)
+
     data = cur.fetchall()
 
     return data
