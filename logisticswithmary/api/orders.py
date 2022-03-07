@@ -5,6 +5,7 @@ Routes:
 GET /api/v1/orders/
 GET /api/v1/order/<orderid>/
 POST /api/v1/order/
+POST /api/v1/order/<orderid>/
 """
 import flask
 import logisticswithmary
@@ -72,7 +73,7 @@ def post_order() -> flask.Response:
     
     Authentication()
     connection = logisticswithmary.model.get_db()
-    
+
     name = flask.request.get_json()['name']
     clothingarticle = flask.request.get_json()['clothingarticle']
     size = flask.request.get_json()['size']
@@ -112,6 +113,12 @@ def post_order() -> flask.Response:
     }
 
     return flask.jsonify(**context), 201
+
+
+@logisticswithmary.app.route('/api/v1/order/<orderid>/', methods=['POST'])
+def edit_order(orderid: int) -> flask.Response:
+    """Edit order information in database."""
+
 
 
 def get_unfulfilled(size, page, from_date, to_date):
