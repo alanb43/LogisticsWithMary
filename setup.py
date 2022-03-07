@@ -12,7 +12,7 @@ from setuptools import setup
 setup(
     name='LogisticsWithMary',
     version='0.1.0',
-    packages=['LogisticsWithMary'],
+    packages=['logisticswithmary'],
     include_package_data=True,
     install_requires=[
         'arrow',
