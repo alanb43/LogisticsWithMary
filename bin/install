@@ -2,9 +2,9 @@
 
 set -Eeuo pipefail
 set -x
-# REMOVE THIS LINE FOR SUBMISSION
-rm -rf env/ node_modules/ insta485.egg-info/ insta485/static/js/bundle.js
-############
+
+rm -rf env/ node_modules/ logisticswithmary.egg-info/ logisticswithmary/static/js/bundle.js
+
 python3 -m venv env
 source env/bin/activate
 
