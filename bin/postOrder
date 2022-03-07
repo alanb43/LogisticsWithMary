@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -Eeuo pipefail
+set -x
+
+http -a awdeorio:password \
+  POST \
+  "http://localhost:8000/api/v1/order/" \
+  name='Alan' \
+  clothingarticle='crewneck' \
+  size='L' \
+  color='Brown' \
+  design='UMich' \
+  orderedorstocked='Ordered' \
+  pricecharged='$0' \
+  shipped='yes' \
+  shippingaddress='22407 Rambling Dr' \
+  completeby='tomorrow' \
+  notes=''

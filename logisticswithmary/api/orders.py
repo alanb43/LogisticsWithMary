@@ -2,13 +2,15 @@
 API unfulfilled order routes serviced here.
 
 Routes:
-/api/v1/orders/
-/api/v1/order/<orderid>/
+GET /api/v1/orders/
+GET /api/v1/order/<orderid>/
+POST /api/v1/order/
 """
 import flask
 import logisticswithmary
 from logisticswithmary.api.authenticator import Authentication
 from logisticswithmary.api.error_handler import ErrorHandler
+from datetime import date
 
 
 @logisticswithmary.app.route('/api/v1/orders/', methods=['GET'])
@@ -34,7 +36,7 @@ def get_orders() -> flask.Response:
 
     context = get_unfulfilled(size, page, from_date, to_date)
 
-    return flask.jsonify(**context)
+    return flask.jsonify(**context), 200
 
 
 @logisticswithmary.app.route('/api/v1/order/<orderid>/', methods=['GET'])
@@ -61,7 +63,55 @@ def get_order(orderid) -> flask.Response:
         "created": data["created"],
     }
 
-    return flask.jsonify(**context)
+    return flask.jsonify(**context), 200
+
+
+@logisticswithmary.app.route('/api/v1/order/', methods=['POST'])
+def post_order() -> flask.Response:
+    """Post a new order to the database."""
+    
+    Authentication()
+    connection = logisticswithmary.model.get_db()
+
+    name = flask.request.get_json()['name']
+    clothingarticle = flask.request.get_json()['clothingarticle']
+    size = flask.request.get_json()['size']
+    color = flask.request.get_json()['color']
+    design = flask.request.get_json()['design']
+    orderedorstocked = flask.request.get_json()['orderedorstocked']
+    pricecharged = flask.request.get_json()['pricecharged']
+    shipped = flask.request.get_json()['shipped']
+    shippingaddress = flask.request.get_json()['shippingaddress']
+    completeby = flask.request.get_json()['completeby']
+    notes = flask.request.get_json()['notes']
+    today_iso = date.today().isoformat()
+    today_iso_formatted = today_iso[0:4] + today_iso[5:7] + today_iso[8:10]
+    created = int(today_iso_formatted)
+
+    connection.execute("""
+        INSERT INTO unfulfilled(name, clothingarticle, size, color, design,
+                                orderedorstocked, pricecharged, shipped, 
+                                shippingaddress, completeby, notes, created) 
+        VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
+    """, (name, clothingarticle, size, color, design, orderedorstocked, 
+          pricecharged, shipped, shippingaddress, completeby, notes, created))
+
+    context = {
+        "name": name,
+        "clothingarticle": clothingarticle,
+        "size": size,
+        "color": color,
+        "design": design,
+        "orderedorstocked": orderedorstocked, 
+        "pricecharged": pricecharged,
+        "shipped": shipped,
+        "shippingaddress": shippingaddress,
+        "completeby": completeby,
+        "notes": notes,
+        "created": created
+    }
+
+    return flask.jsonify(**context), 201
 
 
 def get_unfulfilled(size, page, from_date, to_date):
