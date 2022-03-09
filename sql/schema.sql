@@ -9,16 +9,17 @@ CREATE TABLE users(
 CREATE TABLE unfulfilled(
   orderid INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(20),
-  clothingarticle VARCHAR(64),
-  size VARCHAR(64),
-  color VARCHAR(64),
-  design VARCHAR(256),
-  orderedorstocked VARCHAR(64),
-  pricecharged VARCHAR(64),
-  shipped VARCHAR(64),
-  shippingaddress VARCHAR(256),
-  completeby VARCHAR(128),
-  notes VARCHAR(512),
+  clothingarticle VARCHAR(32),
+  size VARCHAR(10),
+  color VARCHAR(16),
+  design VARCHAR(128),
+  orderedorstocked VARCHAR(32),
+  pricecharged VARCHAR(16),
+  paid VARCHAR(8),
+  shipped VARCHAR(8),
+  shippingaddress VARCHAR(128),
+  completeby VARCHAR(32),
+  notes VARCHAR(128),
   created INTEGER
 );
 
@@ -26,15 +27,15 @@ CREATE TABLE unfulfilled(
 CREATE TABLE fulfilled(
   fulfilledid INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(20),
-  clothingarticle VARCHAR(64),
-  size VARCHAR(64),
-  color VARCHAR(64),
-  design VARCHAR(256),
-  pricecharged VARCHAR(64),
-  shipped VARCHAR(64),
-  shippingaddress VARCHAR(256),
-  notes VARCHAR(512),
-  fulfilledat VARCHAR(20)
+  clothingarticle VARCHAR(32),
+  size VARCHAR(10),
+  color VARCHAR(16),
+  design VARCHAR(128),
+  pricecharged VARCHAR(16),
+  shipped VARCHAR(8),
+  shippingaddress VARCHAR(128),
+  notes VARCHAR(128),
+  fulfilledat INTEGER
 );
 
 CREATE TABLE inventory(
