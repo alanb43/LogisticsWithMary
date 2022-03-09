@@ -4,75 +4,75 @@ VALUES('alan', 'alan');
 -- UNFULFILLED TABLE
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20220223);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20220305);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20220112);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20211012);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20211101);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210504);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210304);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210306);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210322);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210319);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 
+    'alan', 'hoodie', 'L', 'brown', 'travisscott', 'need to order', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210530);
 INSERT INTO unfulfilled(
     name, clothingarticle, size, color, design, orderedorstocked,
-    pricecharged, shipped, shippingaddress, completeby, notes, created)
+    pricecharged, paid, shipped, shippingaddress, completeby, notes, created)
 VALUES(
-    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 
+    'bella', 'hoodie', 'S', 'grey', 'travisscott', 'ordered', '$60', 'no',
     'no', '12345 Wallabye Way', '03/20/2022', 'order design from shop', 20210619);
 
 -- FULFILLED TABLE
