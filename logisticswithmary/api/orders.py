@@ -7,7 +7,9 @@ GET /api/v1/order/<orderid>/
 POST /api/v1/order/
 POST /api/v1/order/<orderid>/
 """
+from sqlite3 import connect
 import flask
+from pyparsing import col
 import logisticswithmary
 from logisticswithmary.api.authenticator import Authentication
 from logisticswithmary.api.error_handler import ErrorHandler
@@ -81,6 +83,7 @@ def post_order() -> flask.Response:
     design = flask.request.get_json()['design']
     orderedorstocked = flask.request.get_json()['orderedorstocked']
     pricecharged = flask.request.get_json()['pricecharged']
+    paid = flask.request.get_json()['paid']
     shipped = flask.request.get_json()['shipped']
     shippingaddress = flask.request.get_json()['shippingaddress']
     completeby = flask.request.get_json()['completeby']
@@ -95,7 +98,8 @@ def post_order() -> flask.Response:
                                 shippingaddress, completeby, notes, created) 
         VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
     """, (name, clothingarticle, size, color, design, orderedorstocked, 
-          pricecharged, shipped, shippingaddress, completeby, notes, created))
+          pricecharged, paid, shipped, shippingaddress, completeby, notes,
+          created))
 
     context = {
         "name": name,
@@ -105,6 +109,7 @@ def post_order() -> flask.Response:
         "design": design,
         "orderedorstocked": orderedorstocked, 
         "pricecharged": pricecharged,
+        "paid": paid,
         "shipped": shipped,
         "shippingaddress": shippingaddress,
         "completeby": completeby,
@@ -118,6 +123,64 @@ def post_order() -> flask.Response:
 @logisticswithmary.app.route('/api/v1/order/<orderid>/', methods=['POST'])
 def edit_order(orderid: int) -> flask.Response:
     """Edit order information in database."""
+    Authentication()
+    connection = logisticswithmary.model.get_db()
+
+    if count_num_posts(orderid) == 0:
+        raise ErrorHandler(message="Bad Request", status_code=400)
+
+    # name = flask.request.form['name']
+    # clothingarticle = flask.request.form['clothingarticle']
+    # size = flask.request.form['size']
+    # color = flask.request.form['color']
+    # design = flask.request.form['design']
+    # orderedorstocked = flask.request.form['orderedorstocked']
+    # pricecharged = flask.request.form['pricecharged']
+    # paid = flask.request.form['pain']
+    # shipped = flask.request.form['shipped']
+    # shippingaddress = flask.request.form['shippingaddress']
+    # completeby = flask.request.form['completeby']
+    # notes = flask.request.form['notes']
+
+    name = flask.request.get_json()['name']
+    clothingarticle = flask.request.get_json()['clothingarticle']
+    size = flask.request.get_json()['size']
+    color = flask.request.get_json()['color']
+    design = flask.request.get_json()['design']
+    orderedorstocked = flask.request.get_json()['orderedorstocked']
+    pricecharged = flask.request.get_json()['pricecharged']
+    paid = flask.request.get_json()['paid']
+    shipped = flask.request.get_json()['shipped']
+    shippingaddress = flask.request.get_json()['shippingaddress']
+    completeby = flask.request.get_json()['completeby']
+    notes = flask.request.get_json()['notes']
+
+    connection.execute("""
+        UPDATE unfulfilled SET name = ?, clothingarticle = ?, size = ?,
+            color = ?, design = ?, orderedorstocked = ?, pricecharged = ?,
+            paid = ?, shipped = ?, shippingaddress = ?, completeby = ?,
+            notes = ? 
+        WHERE orderid = ?;
+    """, (name, clothingarticle, size, color, design, orderedorstocked,
+          pricecharged, paid, shipped, shippingaddress, completeby, notes,
+          orderid))
+    
+    context = {
+        "name": name,
+        "clothingarticle": clothingarticle,
+        "size": size,
+        "color": color,
+        "design": design,
+        "orderedorstocked": orderedorstocked, 
+        "pricecharged": pricecharged,
+        "paid": paid,
+        "shipped": shipped,
+        "shippingaddress": shippingaddress,
+        "completeby": completeby,
+        "notes": notes,
+    }
+
+    return flask.jsonify(**context), 201
 
 
 
