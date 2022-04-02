@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 set -x
 
-rm -rf env/ node_modules/ logisticswithmary.egg-info/ logisticswithmary/static/js/bundle.js
+rm -rf env/ node_modules/ LogisticsWithMary.egg-info/ logisticswithmary/static/js/bundle.js
 
 python3 -m venv env
 source env/bin/activate
